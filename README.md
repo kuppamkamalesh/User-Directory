@@ -1,70 +1,171 @@
-# Getting Started with Create React App
+# 📁 User Directory Table
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A modern, responsive React application that fetches and displays user data with advanced search, sort, filter, and pagination capabilities.
 
-## Available Scripts
+---
 
-In the project directory, you can run:
+## 🌟 Features
 
-### `npm start`
+- **User Data Display:** Fetches and displays user information in a clean table format  
+- **Search Functionality:** Real-time search by name or email  
+- **Sorting:** Sort users by first name or email (ascending/descending)  
+- **Pagination:** Navigate through multiple pages of user data  
+- **Filtering:** Filter users by email domain or first letter of name  
+- **Loading States:** Smooth loading spinner during data fetching  
+- **Mobile Responsive:** Fully responsive design for all device sizes  
+- **Modern UI:** Clean and intuitive user interface  
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+---
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## 🛠️ Tech Stack
 
-### `npm test`
+- **React** - Frontend framework  
+- **JavaScript/JSX** - Programming language  
+- **CSS3** - Styling  
+- **Fetch API** - HTTP requests  
+- **React Hooks** - State management  
+---
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## 📋 Prerequisites
 
-### `npm run build`
+Before you begin, ensure you have the following installed:
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- Node.js (v14.0.0 or higher)  
+- npm (v6.0.0 or higher) or yarn  
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+---
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## 🚀 Installation & Setup
 
-### `npm run eject`
+### Clone the repository
+```bash
+git clone https://github.com/kuppamkamalesh/User-Directory.git
+cd User-Directory
+```
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+### Install dependencies
+```bash
+npm install
+```
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### Start the development server
+```bash
+npm start
+```
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+### Open your browser
+Visit [http://localhost:3000](http://localhost:3000) to view the application.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+---
 
-## Learn More
+## 💻 Usage
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+### 🔍 Search Users
+- Use the search bar to find users by their first name, last name, or email address.  
+- Search updates in real-time as you type.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+### ↕️ Sort Data
+- Click on column headers (Name/Email) to sort in ascending order.  
+- Click again to sort in descending order.  
+- Visual indicators show current sort direction.
 
-### Code Splitting
+### 🧩 Filter Users
+- **Email Domain Filter:** Filter users by their email domain (e.g., `@reqres.in`).  
+- **First Letter Filter:** Quick filter by the first letter of the user's name.  
+- Clear filters to view all users.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+### 📄 Pagination
+- Navigate between pages using Previous/Next buttons.  
+- Page numbers displayed for quick navigation.  
+- Shows current page and total pages available.
 
-### Analyzing the Bundle Size
+---
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+## 🔗 API Information
 
-### Making a Progressive Web App
+This application uses the **ReqRes API** for user data.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+**Base URL:** `https://reqres.in/api/users`  
+**Endpoints Used:**
+```
+GET /users?page={page}   # Fetch paginated user list
+```
+**Response Format:** JSON with user data including:
+- ID  
+- Email  
+- First Name  
+- Last Name  
+- Avatar URL  
 
-### Advanced Configuration
+---
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+## 📁 Project Structure
 
-### Deployment
+```
+user-directory/
+├── public/
+│   ├── index.html
+│   └── favicon.ico
+├── src/
+│   ├── components/
+│   │   ├── FilterBar.js
+│   │   ├── Pagination.js
+│   │   ├── SearchBar.js
+│   │   ├── sortControls.js
+│   │   └── UserTable.js
+│   ├── pages/
+│   │   └── Userpage.js
+│   ├── App.js
+│   └── index.js
+├── package.json
+├── README.md
+└── .gitignore
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+---
 
-### `npm run build` fails to minify
+## 🎨 Features Implementation
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
+### Sort Functionality
+- Implements bidirectional sorting  
+- Maintains sort state across pagination  
+
+### Filter Options
+- Domain extraction from email addresses  
+- Alphabetical filtering by first letter  
+- Combinable with search and sort  
+
+---
+
+## 📱 Responsive Design
+
+The application is fully responsive with breakpoints for:
+
+- **Mobile devices:** < 768px  
+- **Tablets:** 768px - 1024px  
+- **Desktop:** > 1024px  
+
+---
+
+## 🚢 Deployment
+
+You can deploy this project easily using **Vercel**
+
+### Vercel Deployment
+```bash
+npm run build
+vercel --prod
+```
+
+**Live Demo:** https://user-directory-bice.vercel.app/
+
+---
+
+## 👤 Author
+
+**Kamalesh Kuppam**  
+Frontend Developer | React.js Enthusiast  
+GitHub: [@kuppamkamalesh](https://github.com/kuppamkamalesh)
+
+---
